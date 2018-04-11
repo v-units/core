@@ -1,0 +1,52 @@
+{
+  "appId": "com.value-units.vwallet",
+  "productName": "vWallet",
+  "publish": null,
+  "directories": {
+    "app": "dist",
+    "output": "app-builds",
+    "buildResources": "dist/assets/images"
+  },
+  "win": {
+    "icon": "dist/assets/images/icon",
+    "target": [
+      "nsis"
+    ],
+    "artifactName": "${productName}-v${version}-setup-${os}-${env.arch}.${ext}"
+  },
+  "linux": {
+    "icon": "dist/assets/images/",
+    "target": [
+      "deb",
+      "tar.gz"
+    ],
+    "synopsis": "vWallet: the first wallet for vUnits.",
+    "category": "Utility",
+    "artifactName": "${productName}-v${version}-${os}-${arch}.${ext}"
+  },
+  "mac": {
+    "target": [
+      "dmg"
+    ],
+    "category": "public.app-category.productivity",
+    "artifactName": "${productName}-v${version}-${os}-${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": true,
+    "guid": "ed20df62-ff5a-4b83-a5e3-a361357c6e51",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "license": "src/assets/images/license_en.txt"
+  },
+  "msi": {
+    "warningsAsErrors": false
+  },
+  "extraResources": [
+    "daemon/**/*",
+    "src/assets/images/logo-tray.png",
+    "src/assets/images/license_en.txt"
+  ]
+}

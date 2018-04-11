@@ -1,0 +1,59 @@
+<section id="breeze">
+  <div class="login d-flex align-items-center text-center">
+    <div class="container">
+
+      <div class="mb-4">
+        <img src="http://www.digex.market/assets/img/value-units-logo-white.png" width="279" height="86" />
+      </div>
+
+      <h3 class="display-5 mt-4">Welcome to your Wallet</h3>
+      <div *ngIf="hasWallet">
+        <p class="lead">Please choose the wallet you would like to open:</p>
+        <div class="row d-flex justify-content-center">
+          <form class="col-5 mx-auto text-left" [formGroup]="openWalletForm">
+            <div class="form-group">
+              <label class="col-12 row" for="Select">Wallet</label>
+              <select class="form-control custom-select col-12" formControlName="selectWallet">
+                <option *ngFor="let wallet of wallets" [value]="wallet">{{ wallet }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="text-left" for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" formControlName="password" placeholder="Enter your password." (keyup.enter)="onEnter()">
+              <div *ngIf="formErrors.password" class="form-control-feedback">{{ formErrors.password }}</div>
+            </div>
+          </form>
+        </div>
+        <!-- /row-->
+        <div class="row d-flex justify-content-center" *ngIf="!isDecrypting">
+          <button type="submit" class="btn btn-darkgray btn-lg" [disabled]="!openWalletForm.valid || isDecrypting" (click)="onDecryptClicked()">Decrypt</button>
+        </div>
+        <div class="row d-flex justify-content-center" *ngIf="isDecrypting">
+          <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+          </div>
+        </div>
+      </div>
+      <!-- /row-->
+      <div class="row d-flex justify-content-center" *ngIf="hasWallet;else no_wallet">
+        <p class="lead">If you would like to create or restore a wallet please click the button below.
+          <span class="row d-flex justify-content-center">
+            <button type="button" class="btn btn-linkgray btn-lg" (click)="onCreateClicked()">Create or restore a wallet</button>
+          </span>
+        </p>
+      </div>
+      <ng-template #no_wallet>
+        <p class="lead">Looks like you're new here. <br />Please create or restore a wallet.
+          <span class="row d-flex justify-content-center mt-2">
+            <button type="button" class="btn btn-linkgray btn-lg" (click)="onCreateClicked()">Create or restore a wallet</button>
+          </span>
+        </p>
+      </ng-template>
+
+    </div>
+    <!-- /container-->
+  </div>
+  <!-- /login-->
+</section>
+<!-- /breeze-->

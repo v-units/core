@@ -1,0 +1,31 @@
+<!-- sidebar -->
+  <aside id="sidebar">
+    <!-- menu-->
+    <ul class="list-unstyled menu">
+      <li (click)="loadDashboard()" [class.active]="dashboardActive">
+        <img src="../../../assets/images/value-units-icon-white.png" alt="Value Units">
+        <span class="bar"></span>
+      </li>
+      <li (click)="loadVerification()" [class.active]="verificationActive">
+        <img src="../../../assets/images/menu-verification-50.png" alt="Verification">
+        <span class="bar"></span>
+      </li>
+      <li (click)="loadVoting()" [class.active]="votingActive">
+        <img src="../../../assets/images/menu-voting-50.png" alt="Voting">
+        <span class="bar"></span>
+      </li>
+      <li (click)="loadMining()" [class.active]="miningActive">
+        <img src="../../../assets/images/menu-mining-50.png" alt="Mining">
+        <span class="bar"></span>
+      </li>
+    </ul>
+    <!-- /menu-->
+    <ul class="list-unstyled second">
+      <li>
+        <a>
+          <span class="icon-switch" (click)="logOut()"></span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <!-- /sidebar -->

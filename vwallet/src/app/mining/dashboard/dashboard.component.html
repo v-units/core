@@ -1,0 +1,34 @@
+<section id="breeze">
+  <!-- CONTENT -->
+  <section id="content" class="bitcoin">
+    <!-- JUMBOTRON-->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="col-10 mx-auto">
+        <div class="col-xs-12 text-left">
+          <h5 class="text-capitalize walletName">Mining</h5>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col-md-8 text-left">
+            <h5>Status</h5>
+            <p class="lead">
+              <strong>{{status}}</strong>
+            </p>
+          </div>
+          <div class="col-md-4 text-right">
+            <p>
+              <button class="btn btn-primary ml-2" [disabled]="isStartDisabled" role="button" (click)="startMining()">Start</button>
+              <button class="btn btn-primary ml-2" [disabled]="isStopDisabled" role="button" (click)="stopMining()">Stop</button>
+            </p>
+          </div>
+          <!-- /col-->
+        </div>        
+        <!-- /row-->
+      </div>
+      <!-- /container-->
+    </div>
+    <!-- /JUMBOTRON-->
+    <status-bar></status-bar>
+  </section>
+  <!-- /CONTENT-->
+</section>
+<!-- /breeze-->
